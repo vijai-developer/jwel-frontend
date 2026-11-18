@@ -1,0 +1,166 @@
+/* ==========================================================================
+   Sushma Jewels — Editorial Lookbook Design System Styles
+   ========================================================================== */
+
+:root {
+  --color-editorial-ivory: #F8F3EA;
+  --color-editorial-green: #1F3A32;
+  --color-editorial-green-deep: #142822;
+  --color-editorial-green-light: #2A4C42;
+  --color-editorial-gold: #B89B5E;
+  --color-editorial-gold-light: #D4BE8D;
+  --color-editorial-stone: #E9E1D3;
+  --color-editorial-dark: #1E1E1E;
+  --color-editorial-muted: #6B6862;
+  --color-editorial-border: rgba(184, 155, 94, 0.25);
+  --color-editorial-hairline: rgba(30, 30, 30, 0.12);
+
+  --font-editorial-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-editorial-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Background & Core Editorial Defaults */
+.editorial-page {
+  background-color: var(--color-editorial-ivory);
+  color: var(--color-editorial-dark);
+  font-family: var(--font-editorial-sans);
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.editorial-serif {
+  font-family: var(--font-editorial-serif);
+}
+
+.editorial-italic-gold {
+  font-family: var(--font-editorial-serif);
+  font-style: italic;
+  color: var(--color-editorial-gold);
+  font-weight: 400;
+}
+
+/* Editorial Captions & Labels */
+.editorial-caption {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 500;
+  color: var(--color-editorial-gold);
+}
+
+.editorial-subtext {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--color-editorial-muted);
+}
+
+/* Subtle Warm Photo Overlay */
+.editorial-img-warm {
+  position: relative;
+}
+
+.editorial-img-warm::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(248, 243, 234, 0.04) 0%,
+    rgba(31, 58, 50, 0.08) 100%
+  );
+  pointer-events: none;
+}
+
+/* Image Slow Hover Zoom */
+.editorial-zoom-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.editorial-zoom-container img {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.editorial-zoom-container:hover img {
+  transform: scale(1.04);
+}
+
+/* Understated Link with Thin Underline */
+.editorial-link-underline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: inherit;
+  text-decoration: none;
+  padding-bottom: 4px;
+}
+
+.editorial-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: right;
+  transform: scaleX(1);
+}
+
+.editorial-link-underline:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+/* Occasions Accordion Behavior */
+.editorial-accordion-item {
+  flex: 1;
+  transition: flex 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: flex;
+}
+
+@media (min-width: 1024px) {
+  .editorial-accordion-parent:hover .editorial-accordion-item {
+    flex: 0.8;
+  }
+  .editorial-accordion-parent .editorial-accordion-item:hover {
+    flex: 1.5;
+  }
+}
+
+/* Minimalist Scrollbar */
+.editorial-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.editorial-no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Inset Gold Frame for Statement Banner */
+.editorial-inset-frame {
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(184, 155, 94, 0.4);
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .editorial-inset-frame {
+    inset: 28px;
+  }
+}
+
+@media (min-width: 768px) {
+  .editorial-inset-frame {
+    inset: 48px;
+  }
+}
+
